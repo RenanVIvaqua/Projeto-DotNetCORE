@@ -13,11 +13,11 @@ namespace ProAgil.Domain
 
         public int? IdEvento {get;set;}
 
-        public Evento Evento {get;set;}
+        public Evento Evento {get;}
 
         public int IdPalestrante {get;set;}
 
-        public Palestrante Palestrante {get;set;}  
+        public Palestrante Palestrante {get;}  
 
     }
 }

@@ -28,8 +28,12 @@ namespace ProAgil.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {        
             services.AddDbContext<ProAgilContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddCors();
+
+            //Injetando Repositorio, toda vez que for usado a interface IProAgilRepository automaticamento será injetado o repositorio, basta criar um construtor q receba  IProAgilRepository
+            services.AddScoped<IProAgilRepository, ProAgilRepository>();          
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

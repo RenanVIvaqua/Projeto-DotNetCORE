@@ -11,9 +11,10 @@ namespace ProAgil.Repository
     {
         private readonly ProAgilContext _context;
 
-        ProAgilRepository(ProAgilContext context)
+        public ProAgilRepository(ProAgilContext context)
         {
             _context = context;
+            _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         public void Add<T>(T entity) where T : class
